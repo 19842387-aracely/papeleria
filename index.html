@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fbf7f1">
+  <meta name="description" content="Descubre cuadernos, lapiceros, stickers y detalles creativos en El rincón del papel.">
+  <title>El rincón del papel | Papelería creativa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <div class="announcement">
+    <span>♡</span> Pequeños detalles para hacer más bonito cada día
+    <span>♡</span>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="El rincón del papel, inicio">
+     <img
+  class="logo-img"
+  src="img/logologo.jpg"
+  alt="Logo de El rincón del papel"
+>
+ <span class="brand-copy">
+        <strong>El rincón del papel</strong>
+        <small>Papelería & pequeños detalles</small>
+      </span>
+    </a>
+
+    <nav class="navigation" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#promociones">Promociones</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="openFavorites" aria-label="Ver favoritos">
+        ♡ <span id="favoriteCount">0</span>
+      </button>
+      <button class="cart-button" id="openCart">
+        Mi carrito <span id="cartCount">0</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>✳</span> UN POQUITO DE INSPIRACIÓN</p>
+
+        <h1>Tu mundo de ideas<br>comienza con <em>papel.</em></h1>
+
+        <p class="description">
+          Cuadernos, colores y pequeños detalles para acompañarte
+          en tus días de estudio, tus proyectos y todas esas ideas
+          que tienes por crear.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#catalogo">Descubrir la tienda <span>↗</span></a>
+          <a class="text-link" href="#promociones">Ver promociones ♡</a>
+        </div>
+
+        <div class="hero-note">
+          <span class="note-heart">♡</span>
+          <span>Un detalle bonito puede inspirar grandes ideas.</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-frame">
+          <img
+            src="img/cuadernoss portada.jpg"
+            alt="Cuaderno y materiales para escribir"
+          >
+        </div>
+        <div class="floating-note note-top">cositas bonitas <span>✿</span></div>
+        <div class="floating-note note-bottom">made with love ♡</div>
+        <span class="hero-decoration decoration-one">✳</span>
+        <span class="hero-decoration decoration-two">✿</span>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Lo que encontrarás">
+      <div><span>✿</span><p>Detalles creativos</p></div>
+      <div><span>♡</span><p>Favoritos para estudiar</p></div>
+      <div><span>✧</span><p>Ideas para regalar</p></div>
+    </section>
+
+    <section class="catalog section-space" id="catalogo">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PARA TU ESCRITORIO Y MUCHO MÁS</p>
+          <h2>Encuentra tu próximo <em>favorito.</em></h2>
+          <p class="section-description">
+            Esas cositas que hacen que hasta estudiar se sienta especial.
+          </p>
+        </div>
+        <span class="heading-doodle">♡ ✿ ♡</span>
+      </div>
+
+      <div class="tools">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="¿Qué estás buscando?" aria-label="Buscar productos">
+        </label>
+
+        <select id="categoryFilter" aria-label="Filtrar por categoría">
+          <option value="todos">Todas las categorías</option>
+          <option value="cuadernos">Cuadernos</option>
+          <option value="escritura">Escritura</option>
+          <option value="organizacion">Organización</option>
+          <option value="detalles">Stickers y detalles</option>
+        </select>
+
+        <select id="sortFilter" aria-label="Ordenar productos">
+          <option value="default">Ordenar por</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="name">Nombre A-Z</option>
+        </select>
+      </div>
+
+      <div class="category-chips" aria-label="Categorías rápidas">
+        <button class="chip active" data-category="todos">Todo</button>
+        <button class="chip" data-category="cuadernos">Cuadernos</button>
+        <button class="chip" data-category="escritura">Lapiceros y colores</button>
+        <button class="chip" data-category="organizacion">Organización</button>
+        <button class="chip" data-category="detalles">Stickers y detalles</button>
+      </div>
+
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>
+        No encontramos productos con esa búsqueda. Prueba con otra palabra. ♡
+      </p>
+    </section>
+
+    <section class="promo-section" id="promociones">
+      <div class="promo-content">
+        <p class="eyebrow">UN DETALLITO PARA TI ✿</p>
+        <h2>Un poquito de magia<br>para tu <em>día a día.</em></h2>
+        <p>
+          Descubre nuestros productos destacados y encuentra
+          nuevas ideas para llenar tu escritorio de color.
+        </p>
+        <a href="#catalogo" class="button button-light">Ver productos <span>↗</span></a>
+      </div>
+
+      <div class="promo-art" aria-hidden="true">
+        <span class="promo-flower">✿</span>
+        <span class="promo-star">✧</span>
+        <div class="promo-card">
+          <span>una nota para ti</span>
+          <strong>Hazlo bonito,<br>hazlo a tu manera.</strong>
+          <small>♡ con cariño</small>
+        </div>
+        <span class="promo-heart">♡</span>
+      </div>
+    </section>
+
+    <section class="favorites-section section-space" id="favoritos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">GUARDADITOS CON CARIÑO</p>
+          <h2>Tus pequeños <em>tesoros.</em></h2>
+          <p class="section-description">Guarda aquí los productos que más te gusten.</p>
+        </div>
+        <button class="text-link" id="showAllFavorites">Ver mis favoritos ♡</button>
+      </div>
+      <div class="product-grid" id="favoritesGrid"></div>
+      <p class="empty-state" id="favoritesEmpty">
+        Todavía no tienes favoritos. Toca el corazón de un producto para guardarlo. ♡
+      </p>
+    </section>
+
+    <section class="about section-space" id="nosotros">
+      <div class="about-symbol">✿</div>
+      <div class="about-copy">
+        <p class="eyebrow">UN RINCÓN HECHO CON CARIÑO</p>
+        <h2>Los días normales también merecen <em>cosas bonitas.</em></h2>
+      </div>
+      <p class="about-description">
+        El rincón del papel nace de ese gusto por los colores,
+        los materiales bonitos y la emoción de estrenar una libreta.
+        Un espacio para encontrar pequeños detalles que acompañen
+        tus ideas, tus estudios y tu creatividad.
+      </p>
+    </section>
+
+    <section class="contact-strip">
+      <span class="contact-flower">♡</span>
+      <div>
+        <p class="eyebrow">¿BUSCAS ALGO EN ESPECIAL?</p>
+        <h2>¡Hablemos por WhatsApp!</h2>
+        <p>Escríbenos para consultar productos y preparar tu pedido.</p>
+      </div>
+      
+<a
+  class="button"
+  id="contactWhatsApp"
+  href="https://wa.me/50373068503?text=Hola%2C%20El%20rinc%C3%B3n%20del%20papel.%20Quisiera%20informaci%C3%B3n%20sobre%20sus%20productos."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Escríbenos <span>↗</span>
+</a>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+   
+<a class="brand footer-brand" href="#inicio">
+  <img
+    class="logo-img"
+    src="img/logologo.jpg"
+    alt="Logo de El rincón del papel"
+  >
+
+  <span class="brand-copy">
+    <strong>El rincón del papel</strong>
+    <small>PAPELERÍA &amp; PEQUEÑOS DETALLES</small>
+  </span>
+</a>
+
+    <p>Un poquito de color para tus días. ♡</p>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> El rincón del papel</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+    
+
+<div class="footer-socials">
+  
+<a
+
+href="https://www.instagram.com/elrincondelpapel___/"
+
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram de El rincón del papel"
+  title="Instagram"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+    <circle cx="12" cy="12" r="4"></circle>
+    <circle cx="18" cy="6" r="1"></circle>
+  </svg>
+</a>
+
+
+
+  <a
+    href="https://wa.me/50373068503"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp de El rincón del papel"
+    title="WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"></path>
+      <path d="M9 8.5c.5 3 2 4.5 5 5"></path>
+    </svg>
+  </a>
+</div>
+```
+  <p class="social-title">¡Síguenos y hablemos! ♡</p>
+
+  <a
+    class="social-link instagram-link"
+    href="https://www.instagram.com/elrincondelpapel___/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visitar nuestro Instagram"
+  >
+    Instagram
+  </a>
+
+  <a
+    class="social-link whatsapp-link"
+    href="https://wa.me/50373068503?text=Hola%2C%20El%20rinc%C3%B3n%20del%20papel.%20Quisiera%20informaci%C3%B3n%20sobre%20sus%20productos."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    WhatsApp
+  </a>
+</div>
+
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="cart-title">
+      <div>
+        <p class="eyebrow">TUS COSITAS BONITAS</p>
+        <h2>Mi carrito <span>♡</span></h2>
+      </div>
+      <button id="closeCart" class="close-button" aria-label="Cerrar carrito">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-total">
+      <div class="total-line">
+        <span>Total estimado</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <p class="note">Precios de ejemplo en USD. El envío se coordina por separado.</p>
+      <button id="checkout" class="button checkout-button">Consultar pedido por WhatsApp ↗</button>
+      <button id="continueShopping" class="continue-button">Seguir mirando</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
